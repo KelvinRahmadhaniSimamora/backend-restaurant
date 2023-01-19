@@ -1,0 +1,37 @@
+{
+  "kind": "collectionType",
+  "collectionName": "menu_favorits",
+  "info": {
+    "singularName": "menu-favorit",
+    "pluralName": "menu-favorits",
+    "displayName": "menu_favorit",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "harga": {
+      "type": "integer",
+      "required": true
+    },
+    "category": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::category.category",
+      "inversedBy": "menu_favorits"
+    },
+    "restaurants": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::restaurant.restaurant",
+      "inversedBy": "menu_favorits"
+    }
+  }
+}
